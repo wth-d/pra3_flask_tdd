@@ -9,8 +9,8 @@ class Post(db.Model):
     def __init__(self, title, text):
         self.title = title
         self.text = text
-        # so why is id not added to self? - this is just for the class constructor 
+        # so why is id not added to self? - this is just for the class constructor
         # and for initialization of the class instance;
 
     def __repr__(self):
-        return f'<title {self.title}>'
+        return f"<title {self.title}>"
