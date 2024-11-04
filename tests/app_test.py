@@ -3,7 +3,7 @@ import pytest
 from pathlib import Path
 import json
 
-from project.app import app, db
+from project.app import app, db, login_required
 
 # from project.models import Post
 
@@ -91,3 +91,15 @@ def test_delete_message(client):
 
 
 # test /search route
+def test_search(client):
+    rv = client.get("/search/?query=zzzzz")
+    # data = json.loads(rv.data)
+    assert b"zzzzz" not in rv.data
+
+# test for login_required
+# def testDecorator(client):
+#     def mytest():
+#         print("Executing mytest")
+#         return client.get("/", content_type="html/text")
+#     res = json.loads(login_required(mytest)())
+#     assert res["status"] == 0
